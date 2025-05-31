@@ -24,12 +24,3 @@ jobs:
 
       - name: Run greet app
         run: node index.js
-
-      # --- SONARCLOUD SCAN ---
-      - name: Install Sonar Scanner
-        run: npm install -g sonar-scanner
-
-      - name: Run SonarCloud Analysis
-        run: sonar-scanner
-        env:
-          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
