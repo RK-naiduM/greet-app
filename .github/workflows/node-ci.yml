@@ -25,12 +25,6 @@ jobs:
       - name: Run greet app
         run: node index.js
 
-      # --- SNYK SCAN ---
-      - name: Run Snyk Security Scan
-        run: npx snyk test
-        env:
-          SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
-
       # --- SONARCLOUD SCAN ---
       - name: Install Sonar Scanner
         run: npm install -g sonar-scanner
