@@ -21,3 +21,19 @@ jobs:
 
       - name: Run tests
         run: npm test
+
+      - name: Run Snyk to check for vulnerabilities
+        uses: snyk/actions/node@master
+        with:
+          args: test
+        env:
+          SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
+
+      - name: SonarCloud Scan
+        uses: SonarSource/sonarcloud-github-action@master
+        with:
+          args: >
+            -Dsonar.projectKey=RK-naiduM_greet-app
+            -Dsonar.organization=rk-naidum
+        env:
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
