@@ -1,8 +1,11 @@
-function greet(name) {
-  console.log(`Hello, ${name}! Welcome to the team.`);
-}
+const express = require('express');
+const app = express();
+app.use(express.json());
 
-// New line
-console.log("Logger: Greet function was called.");
+app.get('/', (req, res) => {
+  res.send('Hello, World!');
+});
 
-greet("Rohith");
+app.listen(3000, () => {
+  console.log('Server running on port 3000');
+});
